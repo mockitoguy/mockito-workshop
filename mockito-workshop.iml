@@ -13,34 +13,28 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-4/org.mockito/mockito-all/c12498cf18507aa6433a94eb7d3e77d5/jars/mockito-all-1.9.0-rc1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/hamcrest-core-1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-4/org.mockito/mockito-all/c12498cf18507aa6433a94eb7d3e77d5/sources/mockito-all-1.9.0-rc1-sources.jar!/" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-4/junit/junit/c12498cf18507aa6433a94eb7d3e77d5/jars/junit-4.10.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/junit-4.10.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-4/junit/junit/c12498cf18507aa6433a94eb7d3e77d5/sources/junit-4.10-sources.jar!/" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-4/org.hamcrest/hamcrest-core/c12498cf18507aa6433a94eb7d3e77d5/jars/hamcrest-core-1.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/mockito-all-1.9.0-rc1.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/artifacts-4/org.hamcrest/hamcrest-core/c12498cf18507aa6433a94eb7d3e77d5/sources/hamcrest-core-1.1-sources.jar!/" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
