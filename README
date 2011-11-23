@@ -1,5 +1,12 @@
+Workshop prerequisites:
+
+# jdk 1.6 installed
+# eclipse or idea installed
+# git installed
+
 Workshop instructions:
 
-# Pull in the project into your favorite IDE (that is: eclipse or IntelliJ :)
+# git clone http://github.com/szczepiq/mockito-workshop.git
+# Import the project into your favorite IDE (that is: eclipse or IntelliJ :)
 # Make sure the project builds & compiles in your IDE
 # The instructor will start live-coding the exercises, please follow
