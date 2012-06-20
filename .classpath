@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="output" path="bin"/>
 	<classpathentry kind="src" path="src/main/java"/>
 	<classpathentry kind="src" path="src/test/java"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true"/>
-	<classpathentry kind="lib" path="/Users/szczepan/projects/mockito/mockito-workshop/lib/hamcrest-core-1.1.jar" exported="true"/>
-	<classpathentry kind="lib" path="/Users/szczepan/projects/mockito/mockito-workshop/lib/junit-4.10.jar" exported="true"/>
-	<classpathentry kind="lib" path="/Users/szczepan/projects/mockito/mockito-workshop/lib/mockito-all-1.9.0-rc1.jar" exported="true"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/hamcrest-core-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="lib/mockito-all-1.9.5-rc1.jar"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
