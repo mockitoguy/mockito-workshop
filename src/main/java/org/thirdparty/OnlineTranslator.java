@@ -8,5 +8,4 @@ public class OnlineTranslator {
         //it often fails due to online service not available
         return "someTranslation";
     }
-
 }
