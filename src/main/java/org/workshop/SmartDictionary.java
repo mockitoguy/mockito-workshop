@@ -14,9 +14,9 @@ public class SmartDictionary {
 
     public String lookUp(String word) {
         TranslationRequest request = new TranslationRequest(word);
-        history.lookUpAttempted(request);
 
         TranslationResult result = translator.translate(request);
+        history.lookUpAttempted(request);
         history.lookUpCompleted(result);
 
         return result.getTranslation();

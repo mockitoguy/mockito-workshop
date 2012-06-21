@@ -3,8 +3,10 @@ package org.workshop;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InOrder;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
@@ -64,5 +66,18 @@ public class SmartDictionaryTest {
 
         //then
         verify(history).lookUpCompleted(result);
+    }
+
+    @Test
+    public void shouldLookUpRequestsBeRememberedBeforeResults() throws Exception {
+        //when
+        dictionary.lookUp("Westin");
+
+        //then
+        InOrder inOrder = Mockito.inOrder(history);
+        inOrder.verify(history)
+                .lookUpAttempted(any(TranslationRequest.class));
+        inOrder.verify(history)
+                .lookUpCompleted(any(TranslationResult.class));
     }
 }
