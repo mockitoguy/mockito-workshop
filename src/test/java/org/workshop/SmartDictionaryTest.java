@@ -6,6 +6,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.thirdparty.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.doThrow;
@@ -18,9 +19,12 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class SmartDictionaryTest {
 
-    @Mock Translator translator;
-    @Mock History history;
-    @InjectMocks SmartDictionary dictionary;
+    @Mock
+    Translator translator;
+    @Mock
+    History history;
+    @InjectMocks
+    SmartDictionary dictionary;
 
     @Test
     public void shouldLookUpWords() throws Exception {
