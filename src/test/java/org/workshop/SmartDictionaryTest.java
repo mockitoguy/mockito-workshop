@@ -44,7 +44,7 @@ public class SmartDictionaryTest {
         dictionary.lookUp("uberconf");
 
         //then
-        verify(history).lookUpAttempted(new TranslationRequest("uberconf"));
+        verify(history).lookUpAttempted(translationRequestFor("uberconf"));
     }
 
     @Test
