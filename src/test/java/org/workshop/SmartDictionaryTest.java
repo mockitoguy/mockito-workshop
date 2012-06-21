@@ -76,4 +76,16 @@ public class SmartDictionaryTest {
 
         //then no exception is thrown
     }
+
+    @Test
+    public void shouldBeLenientIfHistoryFailsAtTranslationCompleted() throws Exception {
+        //given
+        doThrow(new HistoryUpdateFailure())
+                .when(history).lookUpCompleted(any(TranslationResult.class));
+
+        //when
+        dictionary.lookUp("foo");
+
+        //then no exception is thrown
+    }
 }

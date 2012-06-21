@@ -20,7 +20,11 @@ public class SmartDictionary {
             //ignore
         }
         TranslationResult result = translator.translate(request);
-        history.lookUpCompleted(result);
+        try {
+            history.lookUpCompleted(result);
+        } catch (HistoryUpdateFailure e) {
+            //ignore
+        }
         return result.getTranslation();
     }
 }
