@@ -13,11 +13,12 @@ public class SmartDictionary {
     }
 
     public String lookUp(String word) {
+        TranslationRequest request = new TranslationRequest(word);
         try {
-            history.lookUpAttempted(word);
+            history.lookUpAttempted(request);
         } catch (HistoryUpdateFailure e) {
             //ignore
         }
-        return translator.translate(new TranslationRequest(word));
+        return translator.translate(request);
     }
 }

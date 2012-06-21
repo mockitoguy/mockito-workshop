@@ -44,13 +44,15 @@ public class SmartDictionaryTest {
         dictionary.lookUp("uberconf");
 
         //then
-        verify(history).lookUpAttempted("uberconf");
+        verify(history).lookUpAttempted(new TranslationRequest("uberconf"));
     }
 
     @Test
     public void shouldBeLenientIfHistoryFails() throws Exception {
         //given
-        Mockito.doThrow(new HistoryUpdateFailure()).when(history).lookUpAttempted("Denver");
+        TranslationRequest request = new TranslationRequest("Denver");
+        Mockito.doThrow(new HistoryUpdateFailure())
+                .when(history).lookUpAttempted(request);
 
         //when
         dictionary.lookUp("Denver");
