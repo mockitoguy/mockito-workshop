@@ -1,4 +1,4 @@
-package org.thirdparty;
+package org.workshop;
 
 /**
  * By Szczepan Faber on 6/21/12

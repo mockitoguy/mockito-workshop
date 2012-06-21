@@ -1,4 +1,6 @@
-package org.thirdparty;
+package org.workshop;
+
+import org.thirdparty.OnlineTranslator;
 
 /**
  * By Szczepan Faber on 6/21/12
