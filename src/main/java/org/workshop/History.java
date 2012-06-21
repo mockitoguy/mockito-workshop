@@ -5,4 +5,6 @@ package org.workshop;
  */
 public interface History {
     void lookUpAttempted(TranslationRequest word) throws HistoryUpdateFailure;
+
+    void lookUpCompleted(String word) throws HistoryUpdateFailure;
 }

@@ -38,12 +38,24 @@ public class SmartDictionaryTest {
     }
 
     @Test
-    public void shouldKeepHistory() throws Exception {
+    public void shouldKeepHistoryOfRequests() throws Exception {
         //when
         dictionary.lookUp("uberconf");
 
         //then
         verify(history).lookUpAttempted(translationRequestFor("uberconf"));
+    }
+
+    @Test
+    public void shouldKeepHistoryOfResults() throws Exception {
+        when(translator.translate(translationRequestFor("Denver")))
+                .thenReturn("nice place");
+
+        //when
+        dictionary.lookUp("Denver");
+
+        //then
+        verify(history).lookUpCompleted("nice place");
     }
 
     @Test
