@@ -19,8 +19,8 @@ public class SmartDictionary {
         } catch (HistoryUpdateFailure e) {
             //ignore
         }
-        String translation = translator.translate(request);
-        history.lookUpCompleted(translation);
-        return translation;
+        TranslationResult result = translator.translate(request);
+        history.lookUpCompleted(result);
+        return result.getTranslation();
     }
 }

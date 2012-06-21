@@ -4,7 +4,7 @@ package org.workshop;
  * By Szczepan Faber on 6/21/12
  */
 public interface History {
-    void lookUpAttempted(TranslationRequest word) throws HistoryUpdateFailure;
+    void lookUpAttempted(TranslationRequest request) throws HistoryUpdateFailure;
 
-    void lookUpCompleted(String word) throws HistoryUpdateFailure;
+    void lookUpCompleted(TranslationResult result) throws HistoryUpdateFailure;
 }

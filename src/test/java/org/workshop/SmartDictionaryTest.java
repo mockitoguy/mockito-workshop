@@ -1,5 +1,6 @@
 package org.workshop;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -24,11 +25,16 @@ public class SmartDictionaryTest {
     @InjectMocks
     SmartDictionary dictionary;
 
+    @Before public void before() {
+        when(translator.translate(any(TranslationRequest.class)))
+                .thenReturn(new TranslationResult("foo"));
+    }
+
     @Test
     public void shouldLookUpWords() throws Exception {
         //given
         when(translator.translate(translationRequestFor("mockito")))
-                .thenReturn("cool stuff");
+                .thenReturn(new TranslationResult("cool stuff"));
 
         //when
         String result = dictionary.lookUp("mockito");
@@ -48,14 +54,15 @@ public class SmartDictionaryTest {
 
     @Test
     public void shouldKeepHistoryOfResults() throws Exception {
+        TranslationResult result = new TranslationResult("nice place");
         when(translator.translate(translationRequestFor("Denver")))
-                .thenReturn("nice place");
+                .thenReturn(result);
 
         //when
         dictionary.lookUp("Denver");
 
         //then
-        verify(history).lookUpCompleted("nice place");
+        verify(history).lookUpCompleted(result);
     }
 
     @Test
