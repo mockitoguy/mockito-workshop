@@ -22,9 +22,7 @@ public class TestSupport {
 
             @Override
             public void describeTo(Description description) {
-                description
-                        .appendText("Translation request for ")
-                        .appendValue(word);
+                description.appendText(new TranslationRequest(word).toString());
             }
         };
     }
