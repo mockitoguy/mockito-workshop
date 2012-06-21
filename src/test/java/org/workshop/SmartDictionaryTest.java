@@ -4,12 +4,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.*;
 import static org.workshop.TestSupport.translationRequestFor;
 
 /**
@@ -50,9 +49,8 @@ public class SmartDictionaryTest {
     @Test
     public void shouldBeLenientIfHistoryFails() throws Exception {
         //given
-        TranslationRequest request = new TranslationRequest("Denver");
-        Mockito.doThrow(new HistoryUpdateFailure())
-                .when(history).lookUpAttempted(request);
+        doThrow(new HistoryUpdateFailure())
+                .when(history).lookUpAttempted(any(TranslationRequest.class));
 
         //when
         dictionary.lookUp("Denver");
