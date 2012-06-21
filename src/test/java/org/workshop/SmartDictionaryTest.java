@@ -1,7 +1,5 @@
 package org.workshop;
 
-import org.hamcrest.BaseMatcher;
-import org.hamcrest.Description;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -12,6 +10,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.workshop.TestSupport.translationRequestFor;
 
 /**
  * By Szczepan Faber on 6/21/12
@@ -29,7 +28,7 @@ public class SmartDictionaryTest {
     @Test
     public void shouldLookUpWords() throws Exception {
         //given
-        when(translator.translate(translationReqestFor("mockito")))
+        when(translator.translate(translationRequestFor("mockito")))
                 .thenReturn("cool stuff");
 
         //when
@@ -37,24 +36,6 @@ public class SmartDictionaryTest {
 
         //then
         assertEquals("cool stuff", result);
-    }
-
-    private TranslationRequest translationReqestFor(String word) {
-        return Mockito.argThat(translationFor(word));
-    }
-
-    private BaseMatcher<TranslationRequest> translationFor(final String word) {
-        return new BaseMatcher<TranslationRequest>() {
-            @Override
-            public boolean matches(Object actual) {
-                TranslationRequest request = (TranslationRequest) actual;
-                return request.getWord().equals(word);
-            }
-
-            @Override
-            public void describeTo(Description description) {
-            }
-        };
     }
 
     @Test
