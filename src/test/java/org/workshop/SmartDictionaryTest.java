@@ -29,7 +29,7 @@ public class SmartDictionaryTest {
     @Test
     public void shouldLookUpWords() throws Exception {
         //given
-        when(translator.translate(Mockito.argThat(translationFor("mockito"))))
+        when(translator.translate(translationReqestFor("mockito")))
                 .thenReturn("cool stuff");
 
         //when
@@ -37,6 +37,10 @@ public class SmartDictionaryTest {
 
         //then
         assertEquals("cool stuff", result);
+    }
+
+    private TranslationRequest translationReqestFor(String word) {
+        return Mockito.argThat(translationFor(word));
     }
 
     private BaseMatcher<TranslationRequest> translationFor(final String word) {
