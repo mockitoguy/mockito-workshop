@@ -16,7 +16,7 @@
 
 Below stories are more like 'notes'. Once we get to work on the together things will get clear :)
 
-1. SmartDictionary delegates to Translator for translations. Start by adding SmartDictionaryTest with "shouldLookUpWords" method.
+1. SmartDictionary delegates to Translator for translations. Start by adding org.workshop.SmartDictionaryTest with "shouldLookUpWords" method.
 1. "Only mock types you own", create Translator implementation that wraps the OnlineTranslator
 1. remembers the translation input and translation result via the History. Start by adding "shouldMaintainHistory" test.
 1. Use test constructor for 'boring' setup
