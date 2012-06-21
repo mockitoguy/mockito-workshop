@@ -5,12 +5,19 @@ package org.workshop;
  */
 public class SmartDictionary {
     private Translator translator;
+    private History history;
 
-    public SmartDictionary(Translator translator) {
+    public SmartDictionary(Translator translator, History history) {
         this.translator = translator;
+        this.history = history;
     }
 
     public String lookUp(String word) {
+        try {
+            history.lookUpAttempted(word);
+        } catch (HistoryUpdateFailure e) {
+            //ignore
+        }
         return translator.translate(word);
     }
 }
