@@ -25,7 +25,8 @@ public class SmartDictionaryTest {
     @Test
     public void shouldLookUpWords() throws Exception {
         //given
-        when(translator.translate("mockito")).thenReturn("cool stuff");
+        when(translator.translate(new TranslationRequest("mockito")))
+                .thenReturn("cool stuff");
 
         //when
         String result = dictionary.lookUp("mockito");

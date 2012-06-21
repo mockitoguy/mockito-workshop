@@ -18,6 +18,6 @@ public class SmartDictionary {
         } catch (HistoryUpdateFailure e) {
             //ignore
         }
-        return translator.translate(word);
+        return translator.translate(new TranslationRequest(word));
     }
 }
