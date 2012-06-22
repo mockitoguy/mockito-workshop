@@ -14,9 +14,14 @@ public class SmartDictionary {
 
     public String lookUp(String word) {
         TranslationRequest request = new TranslationRequest(word);
-
-        TranslationResult result = translator.translate(request);
         history.lookUpAttempted(request);
+
+        TranslationResult result;
+        try {
+            result = translator.translate(request);
+        } catch (TranslationFailed e) {
+            throw new LookUpFailed("Unable to look up word: '" + word + "'.");
+        }
         history.lookUpCompleted(result);
 
         return result.getTranslation();

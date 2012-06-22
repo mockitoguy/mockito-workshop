@@ -10,6 +10,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -79,5 +80,19 @@ public class SmartDictionaryTest {
                 .lookUpAttempted(any(TranslationRequest.class));
         inOrder.verify(history)
                 .lookUpCompleted(any(TranslationResult.class));
+    }
+
+    @Test
+    public void shouldThrowMeaningfulExceptionWhenTranslationFails() throws Exception {
+        //given
+        when(translator.translate(any(TranslationRequest.class)))
+                .thenThrow(new TranslationFailed());
+
+        //when
+        try {
+            dictionary.lookUp("Colorado");
+            //then
+            fail("Expected exception");
+        } catch (LookUpFailed e) {}
     }
 }
