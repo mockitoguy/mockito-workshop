@@ -7,7 +7,13 @@ import org.thirdparty.OnlineTranslator;
  */
 public class DefaultTranslator implements Translator {
     @Override
-    public String translate(TranslationRequest request) {
-        return OnlineTranslator.translate(request.getWord());
+    public TranslationResult translate(TranslationRequest request) {
+        String word = request.getWord();
+        String translation = translateWord(word);
+        return new TranslationResult(translation, request);
+    }
+
+    String translateWord(String word) {
+        return OnlineTranslator.translate(word);
     }
 }
