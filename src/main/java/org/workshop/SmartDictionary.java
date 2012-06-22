@@ -16,7 +16,7 @@ public class SmartDictionary {
         TranslationRequest request = new TranslationRequest(word);
         history.lookUpAttempted(request);
 
-        TranslationResult result;
+        TranslationResult result = null;
         try {
             result = translator.translate(request);
         } catch (TranslationFailed e) {
