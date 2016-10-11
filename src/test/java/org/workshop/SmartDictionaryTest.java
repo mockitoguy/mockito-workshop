@@ -1,35 +1,35 @@
 package org.workshop;
 
+import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.BDDMockito.*;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+
 
 /**
  * By Szczepan Faber on 6/21/12
  */
-@RunWith(MockitoJUnitRunner.class)
+//@RunWith(MockitoJUnitRunner.class)
 public class SmartDictionaryTest {
 
-    @Mock
-    Translator translator;
-    @Mock
-    History history;
-    @InjectMocks
-    SmartDictionary dictionary;
+    @Mock Translator translator;
+    @Mock History history;
+    @InjectMocks SmartDictionary dictionary;
+
+    @Rule public MockitoRule rule = MockitoJUnit.rule();
 
     @Test
     public void shouldLookUpWords() throws Exception {
         //given
-        when(translator.translate(new TranslationRequest("mockito")))
-                .thenReturn("cool stuff");
+        willReturn("cool stuff").given(translator).translate(new TranslationRequest("mockito"));
 
         //when
         String result = dictionary.lookUp("mockito");
