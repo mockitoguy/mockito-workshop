@@ -1,3 +1,15 @@
+# Tech talk outline
+
+1. shouldBeLenientIfHistoryFails()
+  - make typo in first test, discuss poor test
+  - show behavior of rule and runner
+2. shouldLookUpWords()
+  - use bdd mockito
+  - discuss JUnit rule support
+  - discuss strict mock support
+  - run shouldKeepHistory with strict mock
+    - discuss overspecified tests
+
 # Workshop prerequisites
 
 1. jdk 1.6 installed
